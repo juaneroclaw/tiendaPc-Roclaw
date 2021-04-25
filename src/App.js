@@ -2,7 +2,7 @@ import logo from './en-construccion.png';
 import './App.css';
 import React from 'react';
 import NavBar from './component/navBar/NavBar';
-import ItemListContainer from './container/ItemListContainer';
+import {ItemListContainer} from './container/ItemListContainer';
 
 function App() {
 
