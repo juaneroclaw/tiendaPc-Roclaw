@@ -2,3 +2,11 @@
     width: 15%; 
     height: 15%;
 }
+.linkCar{
+    color: black;
+    text-decoration: none;
+}
+.linkCar:hover{
+    color: black;
+    text-decoration: none;
+}

@@ -1,12 +1,14 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState, useEffect,useContext } from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import ItemDetail from '../component/Items/ItemDetail';
 import loading from './pc.gif';
 import './ItemListContaines.css';
 import {useParams} from 'react-router-dom'
+import {CartContext} from '../context/cartContext'
 export const ItemDetailContainer = () => {
-
+    const {addItems,setAddItem,addItem} = useContext(CartContext)
     const [items,setItems] = useState([]);
+    const [cerrar,setCerrar] = useState(true);
     const {idProducto} = useParams();
     useEffect(()=>{
         const productos= [
@@ -95,21 +97,26 @@ export const ItemDetailContainer = () => {
         const listado = new Promise ((resolve,reject)=>{
             setTimeout(()=>{
                 resolve(productos)
+                setAddItem(false);
             },2000)
         })
         listado.then((rej)=>{
-            console.log(rej.find(i=>i.id===idProducto))
+            //console.log(rej.find(i=>i.id===idProducto))
             setItems(rej.find(i=>i.id===idProducto));
         }).catch(()=>{
             console.log('Hubo un problema en la carga')
         }).finally(()=>{
             console.log('El Control a finalizado')
         })
-    },[idProducto]);
-
+    },[idProducto,setAddItem]);
+    const onAdd = (count) => {
+        console.log(items)
+        addItem(items,count)
+        setCerrar(false)
+    }
     return (
         <Container className="mt-3">
-            {items.length !== 0 ?  <ItemDetail img={items.img} id={items.id} name={items.name} descripcion={items.descripcion} price={items.price} stock={items.stock}/> : <Row><Col className="text-center"><Image src={loading} className="loading"/></Col></Row>}
+            {items.length !== 0 ?  <ItemDetail img={items.img} id={items.id} name={items.name} descripcion={items.descripcion} price={items.price} stock={items.stock} item={items} onAdd={onAdd} addItems={addItems} cerrar={cerrar} /> : <Row><Col className="text-center"><Image src={loading} className="loading"/></Col></Row>}
            
         </Container>
     )

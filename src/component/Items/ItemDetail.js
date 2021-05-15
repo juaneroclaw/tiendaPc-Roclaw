@@ -1,8 +1,9 @@
 import React from 'react'
-import {Col,Row,Image,Button} from 'react-bootstrap';
+import {Col,Row,Image,Button,Alert} from 'react-bootstrap';
 import ItemsCounts from './ItemsCounts';
 import { Link } from "react-router-dom";
-const ItemDetail = ({img,id,name,descripcion,price,stock}) => {
+const ItemDetail = ({img,id,name,descripcion,price,stock,item,onAdd, addItems, cerrar}) => {
+    console.log(item);
     return (
         <>
             <Row>
@@ -22,8 +23,8 @@ const ItemDetail = ({img,id,name,descripcion,price,stock}) => {
                        </Col>
                    </Row> 
                    <Row>
-                       <Col>
-                       <ItemsCounts stock={stock} id={id} />
+                       <Col style={{textAlign:"center"}}>
+                       {!addItems ? cerrar ? <ItemsCounts stock={stock} id={id} onAdd={onAdd} /> : <Button variant="info" ><Link to={`/cart`} style={{color:"white"}}>Finalizar Compra</Link></Button>: <Alert variant="danger" style={{textAlign:"center"}}> Supera el stock </Alert>}
                        </Col>
                    </Row> 
                    <Row>

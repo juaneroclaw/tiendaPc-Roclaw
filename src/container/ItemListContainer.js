@@ -111,7 +111,6 @@ export const ItemListContainer = () => {
         })
     },[id]);
 
-   
     return(
         <Container className="mt-3">
             {

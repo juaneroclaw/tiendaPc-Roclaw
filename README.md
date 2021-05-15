@@ -21,3 +21,26 @@ Lo que se hizo:
 10. Toda la navegacion nombrada en los puntos anteriores es gracia a la instalacion "npm install  react-router-dom"
 
 ![alt text](public/imagenes/navegador.gif)
+
+14/05/2021 - Entrega de la clase 5 CartContext - Desafio: Sincronizar counter
+
+Lo que se hizo fue crear la carpeta context y dentro de la misma crear cartContext.js la misma tiene cartContext y un provider. Aca realizo toda la accion de compra:
+1 - Añado un nuevo item al carrito
+2 - si ya existe lo sumo
+3 - verifico antes de sumarlo si supera la cantidad del stock, si es asi mando un mensaje de error y no lo sumo.
+4 - Suma el total a abonar por item y la cantidad que desea comprar del mismo
+5 - suma la cantidad del total de la compra
+6 - puedo eliminar por item
+7 - puedo vaciar el carrito
+
+![alt text](public/imagenes/cartContext1.png)
+
+![alt text](public/imagenes/cartContext2.png)
+
+Luego creamos la interacion en ItemDetailContainer donde recibimos de cartContext la accion de agregar, hook addItems que verifica a la hora de comprar y el producto ya fue ingresado anteriormente al carrito, que no supere el stock.
+
+Luego mando esas acciones a ItemsDetails, y de luego a ItemsCounts. En ItemsDetails si agrego un producto al carrito me cambia los botones de compra por un boton que te direcciona al carrito.
+
+En Cart cree un table que mapea el array de compras, recibe el array armando en cartContext, y las acciones Eliminar de forma individual por item y borrar todo, ademas recibe el total a pagar el carrito.
+
+![alt text](public/imagenes/navegador2.gif)
