@@ -44,3 +44,42 @@ Luego mando esas acciones a ItemsDetails, y de luego a ItemsCounts. En ItemsDeta
 En Cart cree un table que mapea el array de compras, recibe el array armando en cartContext, y las acciones Eliminar de forma individual por item y borrar todo, ademas recibe el total a pagar el carrito.
 
 ![alt text](public/imagenes/navegador2.gif)
+
+22/05/2021 - Entrega de la clase 6 Desafío: Cart View - Desafío: Item Collection
+
+Lo que hice fue relacionar con la cuenta Firebase, cree categorias e items, relacione categoria con items y los datos de ambas colecciones son los que trabaja el sitio.
+
+![alt text](public/imagenes/firabase0.png)
+
+Cree el archivo firabase.js que se encuentra a nivel src, el mismo tiene los datos de conexion a la base.
+
+![alt text](public/imagenes/firabase1.png)
+
+Despues creer en la carpeta context el archivo cartFirabase.js, ese archivo tiene todos los formar de conexion a las colecciones del mi base, contiene el de categoria, el de todos los items, los filtrados por categoria y el item individual
+
+![alt text](public/imagenes/firabase2.png)
+
+![alt text](public/imagenes/firabase3.png)
+
+![alt text](public/imagenes/firabase4.png)
+
+Despues saque todo lo que carga de forma harcodeada de datos y le implemente la llamada desde el cartFirabase, en los containers Detalle items y List items
+
+![alt text](public/imagenes/firabase5.png)
+
+![alt text](public/imagenes/firabase6.png)
+
+Cree el container category que lo que hace es sacar un listado de categorias de firabes y lo muestra como opciones de menu para la navegacion.
+
+![alt text](public/imagenes/firabase7.png)
+
+modifique el cart, trae todos los datos de orden de compra (que en la clase anterior ya lo tenia echo), ademas le agrege la posibilidad de poder cambiar desde la orden la cantidad de productos que deseo por item y muestro un mensaje si la persona no a cargado nada en su orden de compra
+
+![alt text](public/imagenes/firabase8.png)
+
+![alt text](public/imagenes/firabase9.png)
+
+
+A continuacion dejo un gif de como esta funcionando el sitio.
+
+![alt text](public/imagenes/navegador3.gif)

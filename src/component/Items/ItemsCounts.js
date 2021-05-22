@@ -1,12 +1,14 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {Row,Col,Button} from 'react-bootstrap';
 import './ItemsCounts.css'
 //import Gabinete from './../imagenes/GabineteCompleto.jpg';
 const ItemsCounts = ({stock,id,onAdd}) => {
-    const [total,setTotal] = useState(stock);
+    const [total,setTotal] = useState(0);
     const [inicio,setIncio] = useState(0);
     const [activar,setActivar] = useState(false);
-
+    useEffect(()=>{
+        setTotal(stock)
+    },[stock])
     const suma = () =>{
         if(total !== 0){
             console.log(total)

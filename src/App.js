@@ -1,19 +1,21 @@
 import './App.css';
 import React from 'react';
-import NavBar from './component/navBar/NavBar';
+import {CategoryContainer} from './container/categoryContainer';
 import {Row, Col} from 'react-bootstrap';
 import {ItemListContainer} from './container/ItemListContainer';
 import {ItemDetailContainer} from './container/ItemDetailContainer';
 import {Cart} from './container/Cart';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Cantidad} from './context/cartContext'
+import {DbFirabase} from './context/cartFirabase'
 function App() {
 
   return (
     <>
     <Cantidad>
+      <DbFirabase>
       <BrowserRouter>
-        <NavBar/>
+        <CategoryContainer/>
         
         <Switch>
           <Route path="/category/:id">
@@ -37,6 +39,7 @@ function App() {
         </Switch>
         
       </BrowserRouter> 
+      </DbFirabase>
     </Cantidad>
     </>
   );

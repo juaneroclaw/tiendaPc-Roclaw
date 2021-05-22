@@ -32,6 +32,18 @@ export const Cantidad = ({ children }) => {
         }
       }
     })
+    setCant(busqueda);
+  }
+
+  const newCantUni = (idItem,quantity) =>{
+    const busqueda = [...cant];
+    busqueda.forEach(i =>{
+      if(i.id ===  idItem){
+          i.cant = quantity;
+          i.total = quantity * i.price
+        }
+      })
+    setCant(busqueda);
   }
 
   const addItem = (item,quantity) => {
@@ -54,15 +66,18 @@ export const Cantidad = ({ children }) => {
     return totales;
   }
   const getItems = () =>{
+    
     const getItems = cant.reduce((a,b)=>(a + b.cant),0)
+    console.log(getItems);
     return getItems;
   }
+  
   const clearItems = () =>{
       setCant([]);
       setAddItem(false);
   } 
   return (
-    <CartContext.Provider value={{cant, addItems, setAddItem, addItem, removeItems, clearItems, getTotales, getItems}}>
+    <CartContext.Provider value={{cant, addItems, setAddItem, addItem, removeItems, clearItems, getTotales, getItems, newCantUni}}>
       {children}
     </CartContext.Provider>
   );
