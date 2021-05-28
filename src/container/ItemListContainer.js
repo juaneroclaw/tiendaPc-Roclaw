@@ -18,7 +18,6 @@ export const ItemListContainer = () => {
             resolve(items)
         })
         listado.then((rej)=>{
-            console.log(rej)
             setProd(rej)
         }).catch(()=>{
             console.log('Hubo un problema en la carga')

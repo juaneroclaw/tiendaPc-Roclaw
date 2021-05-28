@@ -12,15 +12,14 @@ export const DbFirabase = ({children}) => {
     const [cate,setCate] = useState([]);
     const [tituloCategory,setTituloCategory] = useState('');
     const db = getFirestore();
+    const catCollection = db.collection("categorys");
+    const itemsCollection = db.collection("items");
     useEffect(()=>{
-        const catCollection = db.collection("categorys");
+        
         catCollection.get()
             .then((querySnapShot)=>{
                 if(querySnapShot.size === 0 ){
-                    console.log("no hay items") 
                     return
-                }else{
-                    console.log(`hay ${querySnapShot.size} items `) 
                 }
                 const documentos = querySnapShot.docs.map((doc)=>{
                     return {
@@ -37,11 +36,10 @@ export const DbFirabase = ({children}) => {
                 console.log('Finalizo')
             })
         
-    },[db])
+    },[])
     useEffect(()=>{
         if(catid!==undefined){
-            const categoryCollection = db.collection("categorys");
-            const categorys = categoryCollection.doc(catid)
+            const categorys = catCollection.doc(catid)
             categorys.get()
                 .then((doc)=>{
                     setTituloCategory(doc.data().nombre)
@@ -53,14 +51,11 @@ export const DbFirabase = ({children}) => {
                     console.log('Finalizo')
                 })
         }
-        const itemsCollection = catid===undefined ? db.collection("items").where("destacado","==",true) : db.collection("items").where("category","==",catid);
-        itemsCollection.get()
+        const itemCollection = catid===undefined ? db.collection("items").where("destacado","==",true) : db.collection("items").where("category","==",catid);
+        itemCollection.get()
             .then((querySnapShot)=>{
                 if(querySnapShot.size === 0 ){
-                    console.log("no hay items") 
-                    return
-                }else{
-                    console.log(`hay ${querySnapShot.size} items `) 
+                   return
                 }
                 const documentos = querySnapShot.docs.map((doc)=>{
                     return {
@@ -81,12 +76,11 @@ export const DbFirabase = ({children}) => {
     },[catid,db])
 
     useEffect(()=>{
-        const itemsCollection = db.collection("items");
+        
         const itemCollection = itemsCollection.doc(itemId);
         itemCollection.get()
             .then((doc)=>{
                 if(!doc.exists){
-                    console.log("mo existe")
                     return
                 }
                 setItem({
@@ -102,7 +96,7 @@ export const DbFirabase = ({children}) => {
             })
         
         
-    },[itemId,db])
+    },[itemId])
    
     const itemsBusqID = (categoryId) => {
         setCatId(categoryId);

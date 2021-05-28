@@ -2,7 +2,7 @@ import React,{useContext} from 'react'
 import {Col,Row,Table,Image,Button} from 'react-bootstrap';
 import {CartContext} from '../context/cartContext'
 import { Link } from "react-router-dom";
-import './Cart.css';
+import './Cart.css';    
 const selector = (cant) => {
     const select = []
     for (var i=1; i <= cant; i++){ 
@@ -12,7 +12,6 @@ const selector = (cant) => {
 }
 export const Cart = () => {
     const {cant,removeItems,clearItems,getTotales,newCantUni} = useContext(CartContext)
-    console.log(cant);
     return (
         <>
         <Row>
@@ -57,7 +56,7 @@ export const Cart = () => {
         <Row style={{textAlign:"left"}}>
             <Col xs lg="8" style={{textAlign:"center"}}>Total a gastar ${getTotales()}</Col>
             <Col xs lg="2"><Button onClick={clearItems} variant="danger">Vaciar Carrito</Button></Col>
-            <Col xs lg="2"><Button variant="info"><Link to={`/`} style={{color:"white"}}>Confirmar Compra</Link></Button></Col>
+            <Col xs lg="2"><Button variant="info"><Link to={`/formulario`} style={{color:"white"}}>Confirmar Compra</Link></Button></Col>
         </Row> </> 
         :
         <Row><Col><p style={{textAlign:"center"}}>Todavia no tenes ningun producto seleccionado, para comprar podes ver nuestra sección de destacados haciendo <Link to={`/`} style={{color:"blue"}}>click aqui</Link></p></Col></Row>

@@ -1,15 +1,10 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 
 export const CartContext = React.createContext();
 
 export const Cantidad = ({ children }) => {
   const [cant, setCant] = useState([]);
   const [addItems,setAddItem] = useState(false);
-  useEffect(()=>{
-    console.log(cant)
-  },[cant]);
-
-
   const isInCart = (id) => {
     const cantCompra = cant.find(i=>i.id === id);
       if(cantCompra!==undefined){
@@ -47,7 +42,6 @@ export const Cantidad = ({ children }) => {
   }
 
   const addItem = (item,quantity) => {
-    console.log(item)
     if(isInCart(item.id)){
       calCantUni(item,quantity);
     }else{
@@ -56,10 +50,8 @@ export const Cantidad = ({ children }) => {
     }
   }
   const removeItems = (itemId) => {
-    console.log(itemId)
     const newCant = cant.filter(i=>i.id !== itemId);
     setCant(newCant);
-    console.log(cant);
   }
   const getTotales = () =>{
     const totales = cant.reduce((a,b)=>(a + b.total),0)
@@ -68,7 +60,6 @@ export const Cantidad = ({ children }) => {
   const getItems = () =>{
     
     const getItems = cant.reduce((a,b)=>(a + b.cant),0)
-    console.log(getItems);
     return getItems;
   }
   

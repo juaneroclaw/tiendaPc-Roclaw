@@ -10,7 +10,6 @@ export const CategoryContainer = () => {
                 resolve(cate)
         })
         listado.then((rej)=>{
-            console.log(rej)
             setCateg(rej)
         }).catch((error)=>{
             console.log(error)

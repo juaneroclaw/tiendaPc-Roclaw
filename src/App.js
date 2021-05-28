@@ -8,6 +8,7 @@ import {Cart} from './container/Cart';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Cantidad} from './context/cartContext'
 import {DbFirabase} from './context/cartFirabase'
+import FormContainer from './container/FormContainer'
 function App() {
 
   return (
@@ -18,16 +19,18 @@ function App() {
         <CategoryContainer/>
         
         <Switch>
+
           <Route path="/category/:id">
             <ItemListContainer />
           </Route>
           <Route path="/item/:idProducto">
-            
             <ItemDetailContainer/>
-
           </Route>
           <Route path="/cart">
               <Cart/>
+          </Route>
+          <Route path="/formulario">
+            <FormContainer/>
           </Route>
           <Route path="/">
             <Row>

@@ -22,7 +22,6 @@ export const ItemDetailContainer = () => {
             resolve(item)
         })
         listado.then((rej)=>{
-            console.log(rej)
             setItems(rej)
         }).catch(()=>{
             console.log('Hubo un problema en la carga')

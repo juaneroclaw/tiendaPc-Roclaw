@@ -1,4 +1,4 @@
-Compu Market - Juan Ezequiel Roclaw
+# Compu Market - Juan Ezequiel Roclaw
 
 En este proyecto realizo el ecommers de una tienda que vende productos de informatica, se vende desde pc armadas hasta hardware separados.
 
@@ -22,7 +22,7 @@ Lo que se hizo:
 
 ![alt text](public/imagenes/navegador.gif)
 
-14/05/2021 - Entrega de la clase 5 CartContext - Desafio: Sincronizar counter
+# 14/05/2021 - Entrega de la clase 5 CartContext - Desafio: Sincronizar counter
 
 Lo que se hizo fue crear la carpeta context y dentro de la misma crear cartContext.js la misma tiene cartContext y un provider. Aca realizo toda la accion de compra:
 1 - Añado un nuevo item al carrito
@@ -45,7 +45,7 @@ En Cart cree un table que mapea el array de compras, recibe el array armando en 
 
 ![alt text](public/imagenes/navegador2.gif)
 
-22/05/2021 - Entrega de la clase 6 Desafío: Cart View - Desafío: Item Collection
+# 22/05/2021 - Entrega de la clase 6 Desafío: Cart View - Desafío: Item Collection
 
 Lo que hice fue relacionar con la cuenta Firebase, cree categorias e items, relacione categoria con items y los datos de ambas colecciones son los que trabaja el sitio.
 
@@ -83,3 +83,21 @@ modifique el cart, trae todos los datos de orden de compra (que en la clase ante
 A continuacion dejo un gif de como esta funcionando el sitio.
 
 ![alt text](public/imagenes/navegador3.gif)
+
+# 28/05/2021 - Entrega de la clase 7 Desafío: Item Collection II
+
+Cree un nuevo container llamado FormContainer.js ubicado en la carpeta container, el mismo contiene la creacion de un nuevo dato para la base de firebase, ese dato es la orden de compra.
+
+![alt text](public/imagenes/ContainerII-1.png)
+
+![alt text](public/imagenes/ContainerII-2.png)
+
+Despues cree un nuevo componente ubicado en la carpeta component/Formulario, es un formulario que ingresa los datos el usuario a la hora de finalizar la comprar generando la orden de compra. Lo que se hace es una vez finalizado el mismo para confirmar ingresa sus datos y luego se carga en la base de firebase los datos del cliente + los items ingresados + la fecha de generacion de la orden + el total a abonar. 
+
+![alt text](public/imagenes/ContainerII-3.png)
+
+![alt text](public/imagenes/ContainerII-4.png)
+
+A continuacion dejo un gif de como esta funcionando el sitio.
+
+![alt text](public/imagenes/navegador4.gif)
