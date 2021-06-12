@@ -2,3 +2,10 @@
     width: 100px;
     margin-left: 10%;
 }
+.price2{
+    flex: auto;
+    padding: 0;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: bold;
+  }

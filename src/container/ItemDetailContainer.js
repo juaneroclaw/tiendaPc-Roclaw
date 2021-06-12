@@ -12,32 +12,23 @@ export const ItemDetailContainer = () => {
     const [items,setItems] = useState([]);
     const [cerrar,setCerrar] = useState(true);
     const {idProducto} = useParams();
+
     useEffect(()=>{
-        setItems([]);
-    },[])
-    useEffect(()=>{
+        setItems([])
         itemBusqID(idProducto);
-        const listado = new Promise ((resolve,reject)=>{
-            setAddItem(false);
-            resolve(item)
-        })
-        listado.then((rej)=>{
-            setItems(rej)
-        }).catch(()=>{
-            console.log('Hubo un problema en la carga')
-        }).finally(()=>{
-            console.log('El Control a finalizado')
-        })
-        
-    },[idProducto,itemBusqID,item,setAddItem])
+        setAddItem(false);
+        if(idProducto===item.id){
+            setItems(item)
+        }
+    },[idProducto,setAddItem,item])
+
     const onAdd = (count) => {
-        console.log(items)
         addItem(items,count)
         setCerrar(false)
     }
     return (
-        <Container className="mt-3">
-            {items.length !== 0 ?  <ItemDetail img={items.img} id={items.id} name={items.name} descripcion={items.descripcion} price={items.price} stock={items.stock} item={items} onAdd={onAdd} addItems={addItems} cerrar={cerrar}/> : <Row><Col className="text-center"><Image src={loading} className="loading"/></Col></Row>}
+        <Container className="pt-3">
+            {items.length !== 0?  <ItemDetail img={items.img} id={items.id} name={items.name} descripcion={items.descripcion} price={items.price} stock={items.stock} item={items} onAdd={onAdd} addItems={addItems} cerrar={cerrar}/> : <Row><Col className="text-center"><Image src={loading} className="loading"/></Col></Row>}
            
         </Container>
     )

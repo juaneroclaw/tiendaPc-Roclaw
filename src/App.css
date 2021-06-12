@@ -31,3 +31,11 @@ samp {
     transform: rotate(360deg);
   }
 }
+.price{
+  flex: auto;
+  padding: 0;
+  margin-right: 15px;
+  margin-bottom: 8px;
+  font-size: 22px;
+  font-weight: bold;
+}

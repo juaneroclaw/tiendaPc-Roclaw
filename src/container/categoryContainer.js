@@ -1,5 +1,4 @@
 import React, {useEffect,useContext,useState } from 'react';
-import { Row, Col, Spinner } from 'react-bootstrap';
 import {CartFirabase} from '../context/cartFirabase'
 import NavBar from '../component/navBar/NavBar';
 export const CategoryContainer = () => {
@@ -21,7 +20,7 @@ export const CategoryContainer = () => {
     return(
         <>
             {
-            categ.length !== 0 ? <NavBar category={categ}/> : <Row><Col className="text-center"><Spinner animation="border" /></Col></Row>
+            categ.length !== 0 && <NavBar category={categ}/>
             }
         </>
     )
